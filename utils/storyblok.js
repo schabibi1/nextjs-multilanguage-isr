@@ -75,11 +75,13 @@ export function useStoryblok(originalStory, preview, locale) {
   }
 
   useEffect(() => {
-      // only load inside preview mode
-      if(preview) {
-        // first load the bridge, then initialize the event listeners
-        addBridge(initEventListeners);
-      }
+    console.log('location: ', location)
+    // only load inside preview mode
+    if(preview) {
+      console.log('add bridge')
+      // first load the bridge, then initialize the event listeners
+      addBridge(initEventListeners);
+    } else { console.log('Bridge not added')}
   }, []);
 
   return story;
